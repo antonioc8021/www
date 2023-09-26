@@ -1,4 +1,3 @@
-<!-- esto me funciona de locos, xd esto es una prueba para el git-->
 <?php
 $numero1 = 0;
 $numero2 = 1;
