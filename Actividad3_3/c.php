@@ -14,6 +14,5 @@ function factorial($number)
     }
 
 }
-
-echo (factorial(50));
+echo (factorial(30));
 ?>
