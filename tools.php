@@ -115,4 +115,18 @@ function fecha()
     }
     print "Hoy es: " . $dia_semana . ", " . date("j") . " de " . $mes . " de " . date("Y");
 }
+
+function factorial($number)
+{
+    if (is_numeric($number) == false) {
+        return (-1);
+    } else {
+
+        $res = 1;
+        for ($i = $number; $i > 0; $i--) {
+            $res *= $i;
+        }
+        return $res;
+    }
+}
 ?>
