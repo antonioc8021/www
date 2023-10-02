@@ -39,8 +39,22 @@
         } else {
             return false;
         }
-
     }
+
+    function redondear($n)
+    {
+        if (!is_float($n)) {
+            return false;
+        } else {
+            $decimal = (int) ($n * 10) % 10;
+            if ($decimal >= 5) {
+                $n = (int) $n + 1;
+            } else {
+                $n = (int) $n;
+            }
+        }
+    }
+
 
     $numero = 575;
     $primo = isPrimo($numero);
