@@ -20,6 +20,8 @@
 
     print_r($paises);
 
+    print "<br>" . $paises["Italia"];
+
     ?>
 </body>
 
