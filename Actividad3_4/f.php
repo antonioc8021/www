@@ -9,10 +9,29 @@
 
 <body>
     <?php
-    function numero($arrayNumeros)
+    function numero($arrayNumeros, $numeroLimite)
     {
-
+        $nuevoArray = [];
+        for ($i = 0; $i < $numeroLimite; $i++) {
+            $nuevoArray[$i] = $arrayNumeros[$i];
+        }
+        foreach ($nuevoArray as $posicion => $numeros) {
+            echo "Posición:" . ($posicion + 1) . "=> $numeros<br>";
+        }
     }
+
+    $numeros = [24, 25, 29, 10, 40, 342, 129, 249, 345, 43, 253];
+    echo "ARRAY SIN TOCAR<br>";
+    foreach ($numeros as $posicion => $numero) {
+        echo "Posición:" . ($posicion + 1) . "=> $numero<br>";
+    }
+
+    echo "<hr>";
+
+    echo "ARRAY TUNEADO LOCO<br>";
+    echo numero($numeros, 9);
+
+
     ?>
 </body>
 
