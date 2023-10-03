@@ -31,7 +31,6 @@
             return "Te sale igual socio así que a por al compuesta y a especular; el valor es de:" . $compuesto;
         }
     }
-
     echo comparar(100000, 4, 10);
     ?>
 </body>
