@@ -9,7 +9,7 @@
 
 <body>
     <!-- para que la tabla se vaya autogenerando con el php se debe de meter el php dentro de la etiqueta tabla como en el ejemplo -->
-    <table align="left" border="1" cellpadding="3" cellspacing="2">
+    <table align="left" border="7" cellpadding="3" cellspacing="2">
         <tr>
             <td>Nombre variable</td>
             <td>Valor</td>
