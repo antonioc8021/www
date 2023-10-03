@@ -18,17 +18,37 @@
         "Suecia" => "Estocolmo"
     ];
 
+
+
     print_r($paises);
 
-    print "<br>" . $paises["Italia"] . "<br>";
+
+    print "<hr>" . $paises["Italia"] . "<br>";
+
 
     if (key_exists("Rusia", $paises)) {
-        echo "existe";
+        echo "<hr>existe<br>";
     } else {
-        echo "no existe";
+        echo "<hr>no existe<br>";
     }
 
 
+    echo "<hr>";
+    foreach ($paises as $pais => $ciudad) {
+        echo "$pais cuya capital es: $ciudad<br>";
+    }
+
+
+
+    unset($paises["Francia"]);
+
+    echo "<hr> FRANCIA ELIMINADA, ARRIBA ESPAÑA<br>";
+
+    foreach ($paises as $pais => $ciudad) {
+        echo "$pais cuya capital es: $ciudad<br>";
+    }
+
+    echo "<hr>El país de Lisboa es: " . array_search("Lisboa", $paises);
 
     ?>
 </body>
