@@ -19,6 +19,8 @@
         $fechaCastellano = $diasSemana[$numeroDiaSemana] . ', ' . date('j', strtotime($fechaActual)) . ' de ' . $meses[$numeroMes - 1] . ' de ' . date('Y', strtotime($fechaActual));
         echo '<p>' . $fechaCastellano . '</p>';
     }
+
+    echo fecha();
     ?>
 
 </body>
