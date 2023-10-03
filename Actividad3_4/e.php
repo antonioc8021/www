@@ -20,7 +20,15 @@
 
     print_r($paises);
 
-    print "<br>" . $paises["Italia"];
+    print "<br>" . $paises["Italia"] . "<br>";
+
+    if (key_exists("Rusia", $paises)) {
+        echo "existe";
+    } else {
+        echo "no existe";
+    }
+
+
 
     ?>
 </body>
