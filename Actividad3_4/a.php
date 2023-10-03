@@ -1,5 +1,5 @@
 <?php
-
+// todo: mirar el ejer del profe, lo tiene bastante mejor que yo;
 $cadena1 = [];
 $cadena2 = [];
 
