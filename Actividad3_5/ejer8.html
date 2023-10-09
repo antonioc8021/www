@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejer 8</title>
+    <h1>OPERACIONES</h1>
+</head>
+
+<body>
+    <form action="ejer8.php" method="post">
+        <label for="numero1">Elige un numero entero menor</label>
+        <input type="number" id="numero1" name="numero1"><br>
+        <label for="numero2">Elige un numero entero mayor</label>
+        <input type="number" id="numero2" name="numero2"><br><br>
+        <fieldset>
+            <legend>Seleccione la operación:</legend>
+            <label for="suma">suma</label>
+            <input type="radio" id="suma" name="opera" value="suma" checked>
+            <label for="resta">resta</label>
+            <input type="radio" id="resta" name="opera" value="resta" checked>
+            <label for="producto">producto</label>
+            <input type="radio" id="producto" name="opera" value="producto" checked>
+            <label for="conciente">conciente</label>
+            <input type="radio" id="conciente" name="opera" value="conciente" checked>
+
+        </fieldset>
+        <br><br>
+        <input value="submit" name="enviar" value="Enviar datos">
+    </form>
+</body>
+
+</html>
