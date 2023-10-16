@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es-Es">
 
 <head>
     <meta charset="UTF-8">
@@ -8,13 +8,16 @@
 </head>
 
 <body>
-    <p>fecha actual que debo de poner (preguntar)</p>
-    <label for="dia">Dia: </label>
-    <input type="number" id="dia" name="dia">
-    <label for="mes">Mes:</label>
-    <input type="number" id="mes" name="mes">
-    <label for="anio"></label>
-    <input type="number" id="mes" name="mes">
+    <form action="b.php" method="post">
+        <p>fecha actual que debo de poner (preguntar)</p>
+        <label for="dia">Dia:.</label>
+        <input type="number" id="dia" name="dia"><br>
+        <label for="mes">Mes:</label>
+        <input type="number" id="mes" name="mes"><br>
+        <label for="anio">Año: </label>
+        <input type="number" id="mes" name="mes"><br><br>
+        <input type="submit" name="enviar" value="Enviar">
+    </form>
 </body>
 
 </html>
