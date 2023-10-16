@@ -9,7 +9,7 @@
 
 <body>
     <h2><b>Registro de productos</b></h2>
-    <form action="registro.php" method="post">
+    <form action="registro.php" method="POST">
         Descripción: <input type="text" id="descripcion" name="descripcion" /><br><br>
 
         Clave de categoría: <select name="claveCategoria" id="claveCategoria">
@@ -33,21 +33,22 @@
         <input type="checkbox" id="diseno" name="recargos">Diseño
         <input type="checkbox" id="temporada" name="recargos">Temporada
         <input type="checkbox" id="piel " name="recargos">Piel<br>
-        <input type="submit" id="enviar" value="enviar" />
+        <input type="submit" id="enviar" value="enviar" name="enviar" />
     </form>
 
     <?php
     if (isset($_POST['enviar'])) {
+        if (empty($_POST['descripcion']) || empty($_POST['precio']) || empty($_POST['stock'])) {
+            echo ('Se deben de rellenar todos los campos');
+        } else {
+            echo ("ej");
+        }
         $descripcion = $_POST['descripcion'];
         $claveCategoria = $_POST['claveCategoria'];
         $precio = $_POST['precio'];
         $stock = $_POST['stock'];
         $recargos = $_POST['recargos'];
-        if (empty($descripcion) || empty($precio) || empty($stock)) {
-            echo ('Se deben de rellenar todos los campos');
-        } else {
-            echo ("ella perrea sola");
-        }
+
     }
 
 
