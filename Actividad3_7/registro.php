@@ -12,20 +12,20 @@
 
 
         <select name="codigo" id="codigo">
-            <option value="INF"></option>
-            <option value="JUV"></option>
-            <option value="VET"></option>
-            <option value="ALE"></option>
-            <option value="CLASE_A"></option>
-            <option value="CLASE_B"></option>
-            <option value="CLASE_C"></option>
-            <option value=""></option>
-            <br><br><br>
-            <input type="checkbox" id="importacin" name="Importación">
-            <input type="checkbox" id="diseno" name="Diseño">
-            <input type="checkbox" id="temporada" name="Temporada">
-            <input type="checkbox" id="piel " name="Piel">
+            <option value="ELIGE">Elige una opción</option>
+            <option value="INF">INF</option>
+            <option value="JUV">JUV</option>
+            <option value="VET">VET</option>
+            <option value="ALE">ALE</option>
+            <option value="CLASE_A">CLASE_A</option>
+            <option value="CLASE_B">CLASE_B</option>
+            <option value="CLASE_C">CLASE_C</option>
         </select>
+        <br><br>
+        <input type="checkbox" id="importacion" name="Importación">Importacion
+        <input type="checkbox" id="diseno" name="Diseño">Diseño
+        <input type="checkbox" id="temporada" name="Temporada">Temporada
+        <input type="checkbox" id="piel " name="Piel">Piel
 
     </form>
 
