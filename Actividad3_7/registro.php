@@ -41,16 +41,26 @@
         if (empty($_POST['descripcion']) || empty($_POST['precio']) || empty($_POST['stock'])) {
             echo ('Se deben de rellenar todos los campos');
         } else {
-            echo ("ej");
+            echo ("ella perrea sola");
         }
         $descripcion = $_POST['descripcion'];
         $claveCategoria = $_POST['claveCategoria'];
         $precio = $_POST['precio'];
         $stock = $_POST['stock'];
         $recargos = $_POST['recargos'];
-
     }
 
+    function calcularRecargos($recargos)
+    {
+        if ($recargos[0]) {
+            echo $recargos[0];
+        }
+    }
+
+    function calcula_total()
+    {
+
+    }
 
     ?>
 </body>
