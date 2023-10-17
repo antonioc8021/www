@@ -29,10 +29,10 @@
         <br>
 
         <h4>Recargos</h4>
-        <input type="checkbox" id="importacion" name="recargos">Importacion
-        <input type="checkbox" id="diseno" name="recargos">Diseño
-        <input type="checkbox" id="temporada" name="recargos">Temporada
-        <input type="checkbox" id="piel " name="recargos">Piel<br>
+        <input type="checkbox" id="importacion" name="recargos[]">Importacion
+        <input type="checkbox" id="diseno" name="recargos[]">Diseño
+        <input type="checkbox" id="temporada" name="recargos[]">Temporada
+        <input type="checkbox" id="piel " name="recargos[]">Piel<br>
         <input type="submit" id="enviar" value="enviar" name="enviar" />
     </form>
 
@@ -41,7 +41,7 @@
         if (empty($_POST['descripcion']) || empty($_POST['precio']) || empty($_POST['stock'])) {
             echo ('Se deben de rellenar todos los campos');
         } else {
-            echo ("ella perrea sola");
+
         }
         $descripcion = $_POST['descripcion'];
         $claveCategoria = $_POST['claveCategoria'];
@@ -50,11 +50,27 @@
         $recargos = $_POST['recargos'];
     }
 
-    function calcularRecargos($recargos)
+    function calcularRecargos($recargos, $precio)
     {
-        if ($recargos[0]) {
-            echo $recargos[0];
+        $recImportacion = $recDiseno = $recTemporada = $recPiel = 0;
+        if (in_array("importacion", $recargos)) {
+            $recImportacion = $precio * 0.1;
         }
+        if (in_array("diseno", $recargos)) {
+            $recDiseno = $precio * 0.12;
+        }
+        if (in_array("temporada", $recargos)) {
+            $recTemporada = $precio * 0.08;
+        }
+        if (in_array("piel", $recargos)) {
+            $recPiel = $precio * 0.15;
+        }
+        return $recImportacion + $recDiseno + $recTemporada + $recPiel;
+    }
+
+    function calcularDescuento($precio, $recargo)
+    {
+        return ($precio + $recargo) * 0.5;
     }
 
     function calcula_total()
