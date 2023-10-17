@@ -27,7 +27,7 @@
         Español: <input type="text" id="cajaEspanol" name="cajaEspanol">
         Inglés: <input type="text" id="cajaIngles" name="cajaIngles">
         <br> <br>
-        <input type="submit" name="Anadir" value="Añadir">
+        <input type="submit" name="anadir" value="Añadir">
         <input type="submit" name="eliminar" value="Eliminar">
         <input type="submit" name="buscarEspanol" value="Buscar-Español">
         <input type="submit" name="buscarIngles" value="Buscar-Inglés">
@@ -35,18 +35,20 @@
     </form>
 
     <?php
+    $textoEspanol = array();
+    $textoIngles = array();
     if (isset($_POST['anadir'])) {
-        if (empty($_POST['cajaEspanol']) && empty($_POST['cajaIngles'])) {
+        if (empty($_POST['cajaEspanol']) || empty($_POST['cajaIngles'])) {
             echo ("Para poder añadir debes de tener las dos cajas rellenadas");
         } else {
-            $textoEspanol = array();
-            array_push($textoEspanol, $_POST['cajaEspanol']);
-            $textoIngles = $_POST['cajaIngles'];
-            foreach ($textoEspanol as $texto) {
-                return $texto;
-            }
+            $textoEspanol = $_POST['cajaEspanol'];
+            // array_push($textoEspanol, $_POST['cajaEspanol']);
+            array_push($textoIngles, $_POST['cajaIngles']);
+            print_r($textoEspanol);
         }
     }
+
+    // if (isset($_POST['listar']))
     ?>
 
 </body>
