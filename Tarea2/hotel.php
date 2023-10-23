@@ -10,17 +10,20 @@
             text-align: center;
         }
 
-        .form {
+        legend {
+            text-align: left;
+        }
+
+        .formulario {
             text-align: center;
         }
     </style>
-
 </head>
 
 <body>
     <h1 class="title">RESERVA DE HABITACIONES DE HOTEL</h1>
     <div class="form">
-        <form action="./hotel.php" method="post">
+        <form action="./hotel.php" method="post" class="formulario">
             <fieldset>
                 <legend>HOTEL</legend>
                 <br>Nombre Cliente
@@ -28,11 +31,11 @@
                 Dias
                 <input type="number" id="dias" name="dias"> <br><br>
                 Tipo de habitación:
-                <select name="TipoHabitacion" id="TipoHabitacion">
+                <select name="tipoHabitacion" id="tipoHabitacion">
                     <option value="elegir"></option>
                     <?php
-                    $tipoHabitacion = ["SUITE", "FAMILIAR", "TRIPLE", "DOBLE", "INDIVIDUAL"];
-                    foreach ($tipoHabitacion as $tipo) {
+                    $habitacion = ["SUITE", "FAMILIAR", "TRIPLE", "DOBLE", "INDIVIDUAL"];
+                    foreach ($habitacion as $tipo) {
                         echo "<option value=$tipo>$tipo</option>";
                     }
                     ?>
@@ -43,11 +46,33 @@
                     <input type="checkbox" id="sauna" name="extras[]" value="sauna">Sauna</input>
                     <input type="checkbox" id="peluquería" name="extras[]" value="peluqueria">Peluquería</input>
                 </p>
-                <input type="submit" id="limpiar" value="Limpiar" name="limpiar" />
+                <input type="reset" id="limpiar" value="Limpiar" name="limpiar" />
                 <input type="submit" id="reservar" value="Reservar" name="reservar" />
             </fieldset>
         </form>
     </div>
+    <?php
+    if (isset($_POST["reservar"])) {
+        // para sacar el texto de los inputs deberás de apuntar hacia el name no hacia el id,
+        // el id se usa para css y JS
+    
+        if ((empty($_POST['cliente'])) || (empty($_POST['dias'])) || (empty($_POST['extras']))) {
+            echo 'está vacío';
+        } else {
+            echo 'tamos bien';
+            $cliente = $_POST['cliente'];
+            $dias = $_POST['dias'];
+            $extras = $_POST['extras'];
+            $habitacion = $_POST['tipoHabitacion'];
+        }
+
+        function calculaPrecio($dias, $extras, $habitacion)
+        {
+
+        }
+
+    }
+    ?>
 
 </body>
 
