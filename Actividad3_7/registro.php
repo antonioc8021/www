@@ -12,7 +12,8 @@
     <form action="registro.php" method="POST">
         Descripción: <input type="text" id="descripcion" name="descripcion" /><br><br>
 
-        Clave de categoría: <select name="claveCategoria" id="claveCategoria">
+        Clave de categoría:
+        <select name="claveCategoria" id="claveCategoria">
             <option value="elegir"></option>
             <?php
             $codigo = ["INF", "JUV", "VET", "ALE", "CLASE_A", "CLASE_B", "CLASE_C"];
