@@ -21,17 +21,14 @@
     <h1 class="title">RESERVA DE HABITACIONES DE HOTEL</h1>
     <div class="form">
         <form action="./hotel.php" method="post">
-
-
+            <fieldset>
+                <legend>HOTEL</legend>
+                Nombre Cliente
+                <input type="text" id="cliente" name="cliente"> <br>
+                Dias
+                <input type="number" id="dias" name="dias"> <br>
+            </fieldset>
         </form>
-        <fieldset>
-            <legend>HOTEL</legend>
-            Nombre Cliente
-            <input type="text" id="cliente" name="cliente"> <br>
-            Dias
-            <input type="number" id="dias" name="dias"> <br>
-
-        </fieldset>
     </div>
 
 </body>
