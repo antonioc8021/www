@@ -21,6 +21,8 @@
 
         .formulario {
             text-align: center;
+            ;
+
         }
     </style>
 </head>
@@ -64,7 +66,6 @@
         if ((empty($_POST['cliente'])) || (empty($_POST['dias'])) || (empty($_POST['extras']))) {
             echo 'está vacío';
         } else {
-            echo 'tamos bien';
             $cliente = $_POST['cliente'];
             $dias = $_POST['dias'];
             $extras = [];
@@ -94,15 +95,64 @@
                     $recargos += 15;
                 }
             }
-
             return '(' . $precioBase . '+' . $precioHabitacion . '+' . $recargos . ')*' . $dias . '=' . ($precioBase + $precioHabitacion + $recargos);
         }
 
-        echo (calculaPrecio($dias, $extras, $habitacion));
-
+        // echo (mostrarDatos());
+        $precioTotal = calculaPrecio($dias, $extras, $habitacion);
+        echo (mostrarDatos($cliente, $dias, $extras, $habitacion, $precioTotal));
     }
     ?>
-
 </body>
 
 </html>
+<?php
+function mostrarDatos($cliente, $dias, $extras, $habitacion, $precioTotal, $precioBase = 100)
+{
+    ?>
+    <fieldset>
+        <legend>Factura</legend>
+        <table>
+            <tr>
+                <td>Nombre: </td>
+                <td>
+                    <?php echo ($cliente) ?>
+                </td>
+            </tr>
+            <tr>
+                <td>Días: </td>
+                <td>
+                    <?php echo ($dias) ?>
+                </td>
+            </tr>
+            <tr>
+                <td>Precio base: </td>
+                <td>
+                    <?php echo ($precioBase) ?>€
+                </td>
+            </tr>
+            <tr>
+                <td>Tipo de habitacion: </td>
+                <td>
+                    <?php echo ($habitacion) ?>
+                </td>
+            </tr>
+            <tr>
+                <td>Extras: </td>
+                <td>
+                    <?php foreach ($extras as $extras) {
+                        echo $extras . ' ';
+                    } ?>
+                </td>
+            </tr>
+            <tr>
+                <td>Total: </td>
+                <td>
+                    <?php echo ($precioTotal) ?>€
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+    <?php
+}
+?>
