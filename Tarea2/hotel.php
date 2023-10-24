@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reserva Hotel</title>
     <style>
+        body {
+            margin-left: 30%;
+            margin-right: 30%;
+        }
+
         .title {
             text-align: center;
         }
@@ -44,7 +49,7 @@
                     <input type="checkbox" id="tenis" name="extras[]" value="tenis">Tenis</input>
                     <input type="checkbox" id="masaje" name="extras[]" value="masaje">Masaje</input>
                     <input type="checkbox" id="sauna" name="extras[]" value="sauna">Sauna</input>
-                    <input type="checkbox" id="peluquería" name="extras[]" value="peluqueria">Peluquería</input>
+                    <input type="checkbox" id="peluqueria" name="extras[]" value="peluqueria">Peluqueria</input>
                 </p>
                 <input type="reset" id="limpiar" value="Limpiar" name="limpiar" />
                 <input type="submit" id="reservar" value="Reservar" name="reservar" />
@@ -62,14 +67,38 @@
             echo 'tamos bien';
             $cliente = $_POST['cliente'];
             $dias = $_POST['dias'];
+            $extras = [];
             $extras = $_POST['extras'];
             $habitacion = $_POST['tipoHabitacion'];
         }
 
         function calculaPrecio($dias, $extras, $habitacion)
         {
+            $precioBase = 100;
+            $precioHabitacion = 0;
+            $recargos = 0;
+            if ($habitacion == 'SUITE') {
+                $precioHabitacion += 60;
+            } elseif ($habitacion == 'FAMILIAR') {
+                $precioHabitacion += 40;
+            } elseif ($habitacion == 'TRIPLE') {
+                $precioHabitacion += 30;
+            } elseif ($habitacion == 'DOBLE') {
+                $precioHabitacion += 20;
+            }
 
+            foreach ($extras as $extras) {
+                if (($extras == 'tenis') || ($extras == 'sauna')) {
+                    $recargos += 10;
+                } elseif (($extras == 'masaje') || ($extras == 'peluqueria')) {
+                    $recargos += 15;
+                }
+            }
+
+            return '(' . $precioBase . '+' . $precioHabitacion . '+' . $recargos . ')*' . $dias . '=' . ($precioBase + $precioHabitacion + $recargos);
         }
+
+        echo (calculaPrecio($dias, $extras, $habitacion));
 
     }
     ?>
