@@ -95,7 +95,7 @@
                     $recargos += 15;
                 }
             }
-            return '(' . $precioBase . '+' . $precioHabitacion . '+' . $recargos . ')*' . $dias . '=' . ($precioBase + $precioHabitacion + $recargos);
+            return '(' . $precioBase . '+' . $precioHabitacion . '+' . $recargos . ')*' . $dias . '=' . ($precioBase + $precioHabitacion + $recargos) * $dias;
         }
 
         // echo (mostrarDatos());
