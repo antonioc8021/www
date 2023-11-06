@@ -16,7 +16,16 @@
     </div>
 
     <div id="contenido">
-
+        <form action="./nomina.php" method="post">
+            <fieldset>
+                <legend>Cáclculo de nómina</legend>
+                <br>Sueldo base:
+                <input type="number" id="sueldo" name="sueldo"><br>
+                <p>Extras:
+                    <input type="checkbox" id="noche" name="extras[]" value="noche">Noche</input>
+                </p>
+            </fieldset>
+        </form>
     </div>
 
     <div id="pie">
