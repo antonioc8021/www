@@ -9,6 +9,7 @@
 
 <body>
     <?php
+    include_once("funciones.php");
     $telefonos = array(
         'Marta' => '675223344',
         'Alberto' => '654321123',
@@ -17,6 +18,11 @@
         'Sandra' => '665667788',
         'Rocío' => '689326598'
     );
+
+    buscar('Luis', $telefonos);
+    echo '<br>';
+    buscar('Rocío', $telefonos);
+    echo '<br>';
     print_r($telefonos);
     ?>
 </body>
