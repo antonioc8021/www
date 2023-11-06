@@ -1,5 +1,5 @@
+<!-- Ejercicio 2, Antonio Costas Salazar -->
 <?php
-
 // Busca la clave dentro del array y devuelve el número el cual se almacena en una variable para ser devuelta
 function buscar($nombre, $telefonos)
 {
