@@ -1,13 +1,22 @@
+<!-- Ejercicio 2, Antonio Costas Salazar -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Agenda</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid;
+        }
+    </style>
 </head>
 
 <body>
+    <h2>Ejercicio 2: Agenda</h2>
     <?php
     include_once("funciones.php");
     $telefonos = array(
@@ -19,7 +28,21 @@
         'Rocío' => '689326598'
     );
 
-    print_r($telefonos);
+    ?>
+    <table>
+        <thead>
+            <tr>
+                <th>Contacto</th>
+                <th>Número</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            listar($telefonos);
+            ?>
+        </tbody>
+    </table>
+    <?php
     echo '<br>';
     echo '<br>';
     buscar('Luis', $telefonos);
@@ -32,8 +55,21 @@
     echo '<br>';
     eliminar('Luis', $telefonos);
     echo '<br>';
-    print_r($telefonos);
+    echo '<br>';
     ?>
+    <table>
+        <thead>
+            <tr>
+                <th>Contacto</th>
+                <th>Número</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            listar($telefonos);
+            ?>
+        </tbody>
+    </table>
 </body>
 
 </html>
