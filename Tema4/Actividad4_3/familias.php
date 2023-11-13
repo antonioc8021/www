@@ -10,12 +10,20 @@
 <body>
     <div id="cabeza">
         <h2>EJERCICIO: OBTENCIÓN DE PRODUCTOS DE UNA FAMILIA</h2>
-        <p>Familia: <select name="familia" id="fam">
+        <form id="form_action" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
+            <span>Familia: </span>
+            <select name="familia" id="familia">
                 <?php
-                
-                    $familias=
-                ?>
-            </select></p>
+                if (isset($_POST['familia'])) {
+                    $familia = $_POST['familia'];
+                }
+                $dwes = new PDO("mysql:host=localhost;dbname=dwes", "dwes", "abc123.");
+                $sqlº
+
+                    ?>
+            </select>
+
+        </form>
     </div>
 
 
