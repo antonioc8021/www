@@ -1,7 +1,8 @@
 <?php
 include("conexion.php");
 $sql = "SELECT * FROM vehiculo ORDER BY marca";
-$resultado = $conn->query($sql);
+$resultado1 = $conn->query($sql);
+$resultado2 = $conn->query($sql);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,6 +17,7 @@ $resultado = $conn->query($sql);
             flex-direction: column;
             align-content: center;
             text-align: center;
+            border-spacing: 0;
         }
     </style>
 </head>
@@ -35,7 +37,7 @@ $resultado = $conn->query($sql);
             <th>Vendido</th>
         </tr>
         <?php
-        foreach ($resultado as $coche) {
+        foreach ($resultado1 as $coche) {
             ?>
             <tr>
                 <td>
@@ -60,8 +62,25 @@ $resultado = $conn->query($sql);
             <?php
         }
         ?>
-
     </table>
+
+    <fieldset style="">
+        <legend>Comprar vehículo</legend>
+        <form action="" method="post">
+            Elige una matrícula:
+            <select name="matricula" id="Matricula">
+                <?php
+                foreach ($resultado2 as $fila) {
+                    $matricula = $fila['matricula'];
+                    echo "<option value='$matricula'>$matricula</option>";
+                    ?>
+                </select>
+
+                <?php
+                }
+                ?>
+        </form>
+    </fieldset>
 
 </body>
 
