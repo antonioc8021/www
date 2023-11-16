@@ -8,11 +8,11 @@
 </head>
 
 <body>
-    <?php
-    print "<IMG SRC='logo.gif'><br/>"; // muestra <IMG SRC='logo.gif’> 
-    print "<IMG SRC=\"logo.gif\"><br/>"; //muestra <IMG SRC="logo.gif"> 
-    print '<IMG SRC="logo.gif"><br/>';
-    ?>
+    <form id="form_seleccion" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+        <?php
+
+        ?>
+
 </body>
 
 </html>

@@ -49,7 +49,7 @@
 						SELECT tienda.nombre, stock.unidades
 						FROM tienda INNER JOIN stock ON tienda.cod=stock.tienda
 						WHERE stock.producto='$producto'
-SQL;
+		SQL;
 			$resultado = $dwes->query($sql);
 			if ($resultado) {
 				$row = $resultado->fetch();
