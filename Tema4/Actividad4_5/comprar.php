@@ -63,7 +63,7 @@ $resultado2 = $conn->query($sql);
         }
         ?>
     </table>
-
+    <!-- todo: con el ordenador de casa debes de importar la base de datos y el usuario, no tienes ninguna importada -->
     <fieldset style="">
         <legend>Comprar vehículo</legend>
         <form action="" method="post">
