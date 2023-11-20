@@ -70,7 +70,7 @@ $resultado2 = $conn->query($sql);
             Elige una matrícula:
             <select name="matricula" id="Matricula">
                 <?php
-                foreach ($resultado2 as $fila) {
+                while ($car = $resultado2->fetch()) {
                     $matricula = $fila['matricula'];
                     echo "<option value='$matricula'>$matricula</option>";
                     ?>
