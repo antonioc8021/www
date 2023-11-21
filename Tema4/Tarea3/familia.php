@@ -53,17 +53,23 @@ $familia = $conn->query($sql);
             while ($mostrar = $resultado->fetch()) {
                 $nombreCorto = $mostrar['nombre_corto'];
                 $pvp = $mostrar['PVP'];
-                echo $nombreCorto . ': ' . $pvp . '€';
+                $codProducto = $mostrar['cod'];
                 ?>
-
-                <input type="submit" value="Editar" name="editar">
+                <form action="editar.php" method="post">
+                    <?php
+                    echo $nombreCorto . ': ' . $pvp . '€';
+                    ?>
+                    <input type="submit" value="Editar" name="editar">
+                    <input type="hidden" name="codProducto" value="<?php $codProducto ?>">
+                </form>
 
                 <?php
                 echo "<br>";
             }
 
             if (isset($_POST['editar'])) {
-
+                header("location: editar.php?id=" . $idProducto);
+                exit();
             }
         }
         ?>
