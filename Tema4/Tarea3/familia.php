@@ -60,7 +60,7 @@ $familia = $conn->query($sql);
                     echo $nombreCorto . ': ' . $pvp . '€';
                     ?>
                     <input type="submit" value="Editar" name="editar">
-                    <input type="hidden" name="codProducto" value="<?php $codProducto ?>">
+                    <input type="hidden" name="codProducto" value="<?php echo $codProducto ?>">
                 </form>
 
                 <?php
