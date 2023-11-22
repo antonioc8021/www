@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cargando...</title>
+    <title>Cancelando...</title>
     <style>
         .texto {
             position: fixed;
@@ -29,7 +29,7 @@
 
     <?php
     // de locos titán
-    header("Refresh: 5; URL=familia.php");
+    header("Refresh: 1.5; URL=familia.php");
     ?>
 
 </body>
