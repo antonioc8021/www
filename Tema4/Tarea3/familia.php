@@ -68,7 +68,7 @@ $familia = $conn->query($sql);
             }
 
             if (isset($_POST['editar'])) {
-                header("location: editar.php?id=" . $idProducto);
+                header("location: cambios.php?id=" . $idProducto);
                 exit();
             }
         }
