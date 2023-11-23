@@ -58,8 +58,9 @@ $producto = $conn->query($sql);
     </form>
     <?php
     if (isset($_POST['actualizar'])) {
-
-
+        // $query = "ALTER TABLE costo_cuotas ADD COLUMN '$campos' text NOT NULL";
+        // pg_query();
+    
         header("location: actualizar.php?");
         exit();
     }
