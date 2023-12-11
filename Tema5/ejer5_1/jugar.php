@@ -16,7 +16,7 @@ if (isset($_POST['comprobar'])) {
     } else {
         $numero = $_POST["numero"];
         if ($numero < $_SESSION["numero"]) {
-            $mensaje = "El número es menor!";
+            $mensaje = "El número es mayor!";
             $_SESSION["contador"]++;
         } else if ($numero > $_SESSION["numero"]) {
             $mensaje = "El número es menor!";
@@ -24,7 +24,7 @@ if (isset($_POST['comprobar'])) {
         } else {
             $mensaje = "Has acertado! Has necesitado: " . $_SESSION['$contador'] . "intentos";
             session_destroy();
-            header("refresh:3");
+            // header("refresh:3");
         }
     }
 }
@@ -41,17 +41,20 @@ if (isset($_POST['comprobar'])) {
 </head>
 
 <body>
-
-    <form action="" method="post">
-        <p><input type="text" name="intento" id="intento"></p>
-        <input type="submit" value="Enviar" name="enviar" id="enviar">
-    </form>
-    <?php
-
-
-    ?>
-
-
+    <div style="text-align: center">
+        <h1>Juego: Adivina el número!</h1>
+        <form method="POST" action="<?php $_SERVER['PHP_SELF'] ?>">
+            <label for="numero">Numero:</label><br />
+            <input type="number" name="numero" id="numero" /><br /><br />
+            <input type="submit" name="comprobar" value="Comprobar" />
+        </form>
+        <p>
+            <?php
+            if (isset($mensaje))
+                echo $mensaje;
+            ?>
+        </p>
+    </div>
 </body>
 
 </html>

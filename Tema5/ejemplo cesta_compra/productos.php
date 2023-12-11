@@ -53,6 +53,7 @@
 			}
 		?>
 		<form id='vaciar' action='productos.php' method='post'>
+			<!-- se usa el disabled true para que lo deseleccione en caso de que se cumpla la condición -->
 			<input type='submit' name='vaciar' value='Vaciar Cesta'
 				<?php if ($cesta_vacia) print "disabled='true'"; ?>
 			/>
