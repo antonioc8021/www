@@ -5,15 +5,14 @@ class Coche
     private $velocidad;
     private $matricula;
 
-    //CONSTRUCTOR
+    //constructor
     public function __construct($velocidad, $matricula)
     {
         $this->velocidad = $velocidad;
         $this->matricula = $matricula;
     }
 
-
-    //METODOS MÁGICOS
+    //métodos mágicos
     public function __get($var)
     {
         if (property_exists(__CLASS__, $var)) {
@@ -33,7 +32,7 @@ class Coche
     }
 
 
-    //METODOS FRENAR Y ACLERAR
+    //métodos frenar y acelerar
     public function acelerar($aumento)
     {
         $this->velocidad += $aumento;
