@@ -2,11 +2,18 @@
 session_start();
 
 if (!isset($_SESSION["numero"])) {
-    $_SESSION["numero"] = rand(1,100);
+	$_SESSION["numero"] = rand(1, 100);
 }
 if (!isset($_SESSION["contador"])) {
-    $_SESSION["contador"] = 1;
+	$_SESSION["contador"] = 1;
+	// Un ejemplo de como se podría usar las sesiones para generar variables que perduren en el tiempo, (hasta que se cierre la sesión)
+	/* $_SESSION["coche"]= array();
+		  for ($i=0; $i < 10; $i++) { 
+			  $_SESSION["coche"][$i]=rand(0,7);
+			  echo $_SESSION["coche"][$i];
+		  } */
 }
+
 //$mensaje = "El numero es: " . $_SESSION["numero"];
 if (isset($_POST["comprobar"])) {
 	if (empty(trim($_POST["numero"]))) {
@@ -18,7 +25,7 @@ if (isset($_POST["comprobar"])) {
 		if ($numero < $_SESSION["numero"]) {
 			$mensaje = "El numero es mayor!";
 			$_SESSION["contador"]++;
-		} else  if ($numero > $_SESSION["numero"]) {
+		} else if ($numero > $_SESSION["numero"]) {
 			$mensaje = "El numero es menor!";
 			$_SESSION["contador"]++;
 		}
@@ -35,25 +42,26 @@ if (isset($_POST["comprobar"])) {
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Jugar</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Jugar</title>
 </head>
 
 <body>
 	<div style="text-align: center">
-	<h1>Juego: Adivina el número!</h1>
-	<form method="POST" action="<?php $_SERVER['PHP_SELF'] ?>">
-		<label for="numero">Numero:</label><br />
-		<input type="number" name="numero" id="numero" /><br /><br />
-		<input type="submit" name="comprobar" value="Comprobar" />
-	</form>
-	<p>
-		<?php
-			if (isset ($mensaje)) echo $mensaje;
-		?>
-	</p>
+		<h1>Juego: Adivina el número!</h1>
+		<form method="POST" action="<?php $_SERVER['PHP_SELF'] ?>">
+			<label for="numero">Numero:</label><br />
+			<input type="number" name="numero" id="numero" /><br /><br />
+			<input type="submit" name="comprobar" value="Comprobar" />
+		</form>
+		<p>
+			<?php
+			if (isset($mensaje))
+				echo $mensaje;
+			?>
+		</p>
 	</div>
 </body>
 
