@@ -5,7 +5,7 @@ class Coche
     private $velocidad;
     private $matricula;
 
-    //constructor
+    //constructor 
     public function __construct($velocidad, $matricula)
     {
         $this->velocidad = $velocidad;
