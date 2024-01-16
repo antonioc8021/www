@@ -6,6 +6,15 @@ abstract class Medico
     protected $edad;
     protected $turno;
 
+
+    public function __construct($nombre, $edad, $turno)
+    {
+        $this->nombre = $nombre;
+        $this->edad = $edad;
+        $this->turno = $turno;
+    }
+
+
     public
 
 
@@ -26,7 +35,6 @@ abstract class Medico
     public function setNombre($nombre)
     {
         $this->nombre = $nombre;
-
         return $this;
     }
 
