@@ -1,0 +1,27 @@
+<?php
+include_once("./Cuenta.php");
+include_once("./CuentaCorriente.php");
+include_once("./CuentaAhorro.php");
+$cuentaCorriente1 = new CuentaCorriente("123456789", "Patata1", 1000, 10);
+$cuentaAhorro1 = new CuentaAhorro("234567890", "Patata2", 2000, 20, 0.5);
+$cuentaCorriente1->mostrar();
+echo "<br>";
+echo "<br>";
+echo "<br>";
+echo "<br>";
+$cuentaCorriente1->ingreso(100);
+$cuentaCorriente1->reintegro(50);
+$cuentaCorriente1->mostrar();
+echo "<br>";  
+echo "<br>";
+echo "<br>";
+echo "<br>";
+$cuentaAhorro1->mostrar();
+echo "<br>";
+echo "<br>";
+echo "<br>";
+echo "<br>";
+$cuentaAhorro1->ingreso(400);
+$cuentaAhorro1->aplicaInteres();
+$cuentaAhorro1->reintegro(15);
+$cuentaAhorro1->mostrar();
