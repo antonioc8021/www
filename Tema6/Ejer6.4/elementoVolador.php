@@ -19,6 +19,7 @@ abstract class ElementoVolador
     }
 
 
+    // moewallpaper; waifuwalpaper
     // Getter mágico para acceder a propiedades privadas
     public function __get($atributo)
     {
