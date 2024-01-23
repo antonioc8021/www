@@ -1,5 +1,5 @@
 <?php
-
+include_once "acelerar.php";
 
 abstract class ElementoVolador
 {
@@ -41,8 +41,31 @@ abstract class ElementoVolador
         }
     }
 
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
