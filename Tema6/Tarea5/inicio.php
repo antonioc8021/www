@@ -1,50 +1,54 @@
 <?php
-require_once 'DB.php';
-$db = new DB();
-$conn = $db->getConnection();
+session_start();
+include_once "./conexion.php"; //ten cuidado porque la contraseña es con .
+date_default_timezone_set('Europe/Madrid');
+$sql = "SELECT MAX(numero) FROM pedido";
+$numeroPedido = $conn->query($sql);
 
-// Obtener el último pedido
-$stmt = $conn->prepare("SELECT MAX(num_pedido) as max_pedido FROM pedidos");
-$stmt->execute();
-$result = $stmt->fetch(PDO::FETCH_ASSOC);
-$num_pedido = $result['max_pedido'] + 1;
+$row = $numeroPedido->fetch();
 
-// Obtener las formas de pago
-$stmt = $conn->prepare("SELECT forma_pago FROM formas_pago");
-$stmt->execute();
-$formas_pago = $stmt->fetchAll(PDO::FETCH_COLUMN);
+$numeroPedido = $row[0];
+$numeroPedido++;
+
+$formasPago = array('Contado', 'Master Card', 'VISA', 'American Express');
+$horaActual = date("H:i:s");
+$horaEntrega = date("H:i:s", strtotime($horaActual . " +40 minutes"));
+
 ?>
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-ES">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pizzería Online - Inicio</title>
+    <title>Inicio</title>
 </head>
 
 <body>
-    <h1>Nuevo Pedido (#
-        <?php echo $num_pedido; ?>)
-    </h1>
+    <h1 class="cabecera">SISTEMA DE SELECCION DE MENU ON-LINE</h1>
+    <p>
+        <?php echo "Numero de pedido: $numeroPedido" ?>
+    </p>
+
     <form action="encargo.php" method="post">
-        <input type="hidden" name="num_pedido" value="<?php echo $num_pedido; ?>">
-        <label for="forma_pago">Forma de pago:</label>
-        <select name="forma_pago" id="forma_pago">
+        <p>Selecciona la forma de pago:
+            <select name="formaPago" id="formaPago">
+                <?php
+                foreach ($formasPago as $forma) {
+                    echo "<option value=\"$forma\">$forma</option>";
+                }
+
+                ?>
+            </select>
+        </p>
+        <p>
             <?php
-            foreach ($formas_pago as $forma_pago) {
-                echo "<option value='$forma_pago'>$forma_pago</option>";
-            }
+            echo "Hora de entrega: $horaEntrega";
             ?>
-        </select><br>
-        <label for="hora_recogida">Hora de recogida:</label>
-        <?php
-        date_default_timezone_set('Europe/Madrid');
-        $hora_recogida = date('H:i:s', strtotime('+40 minutes'));
-        echo "<input type='text' name='hora_recogida' value='$hora_recogida' readonly><br>";
-        ?>
-        <button type="submit">Elegir MENU</button>
+        </p>
+        <p>Número de consumiciones <input type="number" name="num_consumiciones" id="num_consumiciones" required></p>
+        <input type="submit" value="Elegir MENU" name="eligeMenu">
     </form>
 </body>
 

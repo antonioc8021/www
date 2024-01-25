@@ -94,7 +94,7 @@ unset($conn);
 						<?php echo $car['PVP']; ?>
 					</td>
 				</tr>
-			<?php
+				<?php
 			}
 			?>
 		</table>
@@ -109,7 +109,7 @@ unset($conn);
 					<option value="<?php echo $car['matricula']; ?>">
 						<?php echo $car['matricula']; ?>
 					</option>
-				<?php
+					<?php
 				}
 				?>
 			</select>
