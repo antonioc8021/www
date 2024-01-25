@@ -14,6 +14,7 @@ $numeroPedido++;
 $formasPago = array('Contado', 'Master Card', 'VISA', 'American Express');
 $horaActual = date("H:i:s");
 $horaEntrega = date("H:i:s", strtotime($horaActual . " +40 minutes"));
+$_SESSION['horaEntrega'] = $horaEntrega;
 
 ?>
 
@@ -32,14 +33,13 @@ $horaEntrega = date("H:i:s", strtotime($horaActual . " +40 minutes"));
         <?php echo "Numero de pedido: $numeroPedido" ?>
     </p>
 
-    <form action="encargo.php" method="post">
+    <form action="" method="post">
         <p>Selecciona la forma de pago:
             <select name="formaPago" id="formaPago">
                 <?php
                 foreach ($formasPago as $forma) {
                     echo "<option value=\"$forma\">$forma</option>";
                 }
-
                 ?>
             </select>
         </p>
@@ -48,8 +48,18 @@ $horaEntrega = date("H:i:s", strtotime($horaActual . " +40 minutes"));
             echo "Hora de entrega: $horaEntrega";
             ?>
         </p>
+        <!-- En vez de validar con el PHP que esté relleno o no utilizo las herramientas que me da html ya que es más rápido y seguro de esta forma -->
         <p>Número de consumiciones <input type="number" name="num_consumiciones" id="num_consumiciones" required></p>
         <input type="submit" value="Elegir MENU" name="eligeMenu">
+        <?php
+        if (isset($_POST['eligeMenu'])) {
+            $_SESSION['formasPago'] = $_POST['formaPago'];
+            // mirar el GPT a ver que se cuenta, tienes que usarlo, todos los datos se deben de ser guardados en $_SESSION para poder usarlo en el resto de partes de la web
+            header("");
+        } else {
+            echo "<p class=warning>A habido un error con la forma de pago!!!</p>";
+        }
+        ?>
     </form>
 </body>
 
