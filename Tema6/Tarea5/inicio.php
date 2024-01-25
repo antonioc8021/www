@@ -1,5 +1,6 @@
 <?php
 session_start();
+// todo: todas las cosas que se hagan|consulten en la base de datos se debe de obtener a través de métodos realizados en el fichero BD.php
 include_once "./conexion.php"; //ten cuidado porque la contraseña es con .
 date_default_timezone_set('Europe/Madrid');
 $sql = "SELECT MAX(numero) FROM pedido";
