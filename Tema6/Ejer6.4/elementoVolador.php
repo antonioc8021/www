@@ -41,6 +41,12 @@ abstract class ElementoVolador
         }
     }
 
+
+    abstract function volar($altitud);
+
+    abstract function mostrarInformacion();
+
+
 }
 
 
