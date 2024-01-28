@@ -1,5 +1,10 @@
 <?php
-
+session_start();
+// esta es la forma correcta de poder acceder a la variable de sesión.
+$horaEntrega = $_SESSION['horaEntrega'];
+$formaPago = $_SESSION['formaPago'];
+$numConsumiciones = $_SESSION['numConsumiciones'];
+$platosSeleccionados;
 
 
 ?>
@@ -14,8 +19,16 @@
 </head>
 
 <body>
-    <h1>ME GUSTA LA PIZZA DE VERDAD</h1>
-    <H1>LAS PIZZAS CON PIÑA NO SON PIÑA, FUCK OFF</H1>
+    <h1>CONFECCIÓN DEL MENÚ: Selección de pizzas</h1>
+    <!-- aquí meto los articulos que se seleccionan-->
+
+
+    <!-- aquí hago un formulario con la seleccion de pizzas y los botones -->
+
+
+
+
+
 
 </body>
 

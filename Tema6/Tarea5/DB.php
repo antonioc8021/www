@@ -26,7 +26,8 @@ function numeroPedido()
     $row = $numeroPedido->fetch();
 
     $numeroPedido = $row[0];
-    return "Numero de pedido: $numeroPedido++";
+    $numeroPedido++;
+    return "Numero de pedido: $numeroPedido";
 }
 
 // Llama a la función
