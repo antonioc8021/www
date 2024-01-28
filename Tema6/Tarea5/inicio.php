@@ -1,15 +1,7 @@
 <?php
 session_start();
-// todo: todas las cosas que se hagan|consulten en la base de datos se debe de obtener a través de métodos realizados en el fichero BD.php
-include_once "./conexion.php"; //ten cuidado porque la contraseña es con .
+include_once "./DB.php"; //ten cuidado porque la contraseña es con .
 date_default_timezone_set('Europe/Madrid');
-$sql = "SELECT MAX(numero) FROM pedido";
-$numeroPedido = $conn->query($sql);
-
-$row = $numeroPedido->fetch();
-
-$numeroPedido = $row[0];
-$numeroPedido++;
 
 $formasPago = array('Contado', 'Master Card', 'VISA', 'American Express');
 $horaActual = date("H:i:s");
@@ -30,7 +22,7 @@ $_SESSION['horaEntrega'] = $horaEntrega;
 <body>
     <h1 class="cabecera">SISTEMA DE SELECCION DE MENU ON-LINE</h1>
     <p>
-        <?php echo "Numero de pedido: $numeroPedido" ?>
+        <?php numeroPedido() ?>
     </p>
 
     <form action="" method="post">
