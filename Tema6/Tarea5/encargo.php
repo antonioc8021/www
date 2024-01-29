@@ -20,11 +20,19 @@ $platosSeleccionados;
 
 <body>
     <h1>CONFECCIÓN DEL MENÚ: Selección de pizzas</h1>
+    <p>
+        <?php echo "Hora de entrega: $horaEntrega"; ?>
+    </p>
+    <p>
+        <?php echo "Forma de pago: $formaPago"; ?>
+    </p>
     <!-- aquí meto los articulos que se seleccionan-->
 
 
     <!-- aquí hago un formulario con la seleccion de pizzas y los botones -->
+    <form action="./registro.php">
 
+    </form>
 
 
 
