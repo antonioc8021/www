@@ -1,4 +1,4 @@
-<?php 
+<?php
 class Pizza
 {
     protected $codigo;
@@ -7,7 +7,7 @@ class Pizza
     protected $tipo;
     protected $foto;
 
-    public function __construct($codigo, $descripcion,$precio, $tipo,  $foto)
+    public function __construct($codigo, $descripcion, $precio, $tipo, $foto)
     {
         $this->codigo = $codigo;
         $this->descripcion = $descripcion;
@@ -71,4 +71,3 @@ class Pizza
         return $this;
     }
 }
-?>

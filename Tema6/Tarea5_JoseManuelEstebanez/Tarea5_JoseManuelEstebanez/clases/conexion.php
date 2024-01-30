@@ -17,6 +17,7 @@ class DB
             die("Error de conexión a la base de datos: " . $e->getMessage());
         }
     }
+
     public static function obtenerConexion()
     {
         if (!isset(self::$conexion)) {
@@ -25,6 +26,7 @@ class DB
 
         return self::$conexion;
     }
+
     public static function ejecutaConsulta($sql)
     {
         if (!isset(self::$conexion)) {
@@ -38,13 +40,13 @@ class DB
             die("Error en la consulta: " . $e->getMessage());
         }
     }
-    public static function preparada($idPedido,$fPago,$horaEntrega,$precioTotal )
+
+    public static function preparada($idPedido, $fPago, $horaEntrega, $precioTotal)
     {
-        try
-        {
+        try {
             $conn = DB::obtenerConexion();
             $conn->beginTransaction();
-    
+
             $sqlPedido = "INSERT INTO pedido (numero, f_pago, fecha, importe) VALUES (:numero, :f_pago, :fecha, :importe)";
             $stmtPedido = $conn->prepare($sqlPedido);
             $stmtPedido->bindValue(':numero', $idPedido);
@@ -52,31 +54,29 @@ class DB
             $stmtPedido->bindValue(':fecha', $horaEntrega);
             $stmtPedido->bindValue(':importe', $precioTotal);
             $stmtPedido->execute();
-    
-    
+
+
             $sqlDetalle = "INSERT INTO detalle (id_pedido, id_pizza) VALUES (:id_pedido, :codigo_pizza)";
             $stmtDetalle = $conn->prepare($sqlDetalle);
-    
-            foreach ($_SESSION["pizzasSeleccionadas"]->getPizzas() as $pizza)
-            {
+
+            foreach ($_SESSION["pizzasSeleccionadas"]->getPizzas() as $pizza) {
                 $stmtDetalle->bindValue(':id_pedido', $idPedido);
                 $stmtDetalle->bindValue(':codigo_pizza', $pizza->getCodigo());
                 $stmtDetalle->execute();
             }
-    
+
             $conn->commit();
-    
+
             session_destroy();
             echo ("<div class='lista'>TODO CORRECTO, REDIRIGIENDO A LA PAGINA DE INCIO</div>");
             header("Refresh: 3; URL=inicio.php");
             exit();
-        }
-        catch (PDOException $e)
-        {
+        } catch (PDOException $e) {
             $conn->rollBack();
             echo "<script>alert('Error al procesar el pedido. " . $e->getMessage() . "');</script>";
         }
     }
 }
+
 $conn = DB::obtenerConexion();
 ?>
