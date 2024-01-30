@@ -114,7 +114,7 @@ if (isset($_POST["removePizza"])) {
         <?php
         foreach ($pizzas as $pizza) {
             ?>
-            <div class="pizza-item">
+            <div class="pizza-item">xºº
                 <img src="./img/<?php echo $pizza->getFoto(); ?>.png" alt="<?php echo $pizza->getDescripcion(); ?>">
                 <p>
                     <?php echo $pizza->getDescripcion() ?>
