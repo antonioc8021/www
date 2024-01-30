@@ -3,22 +3,23 @@
 require_once 'pizza.php';
 
 
-class DB {
+class DB
+{
 
-   
-	protected static function ejecutaConsulta($sql) {
-		require'conexion.php';
-		
-		$resultado = null;
-		if (isset($dwes)) {
-			$resultado = $dwes->query($sql);
-		}
-		return $resultado;
 
-    
+    protected static function ejecutaConsulta($sql)
+    {
+        require 'conexion.php';
+
+        $resultado = null;
+        if (isset($dwes)) {
+            $resultado = $dwes->query($sql);
+        }
+        return $resultado;
     }
 
-    public static function obtienePizzas() {
+    public static function obtienePizzas()
+    {
         $sql = "SELECT * FROM pizza";
         $resultado = self::ejecutaConsulta($sql);
         $pizzas = array();
@@ -32,9 +33,6 @@ class DB {
         }
         return $pizzas;
     }
-
-
-
 }
 
 ?>

@@ -1,5 +1,13 @@
+<?php
+include_once './conexion.php';
+include_once './pizza.php';
+
+
+?>
+
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <title>Plantilla para Examen</title>
@@ -8,15 +16,16 @@
 
 <body>
 
-<div id="encabezado">
-	<h1>Ejercicio: </h1>
-</div>
+  <div id="encabezado">
+    <h1>Ejercicio: </h1>
+  </div>
 
-<div id="contenido">
-	<h2>Contenido</h2>
-</div>
+  <div id="contenido">
+    <h2>Contenido</h2>
+  </div>
 
-<div id="pie">
-</div>
+  <div id="pie">
+  </div>
 </body>
+
 </html>
