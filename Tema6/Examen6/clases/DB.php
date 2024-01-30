@@ -1,6 +1,6 @@
 <?php
-require_once './conexion.php';
-require_once './pizza.php';
+include_once './conexion.php';
+include_once './pizza.php';
 
 class DB
 {
