@@ -2,7 +2,6 @@
 include "./clases/conexion.php";
 
 
-
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +27,7 @@ include "./clases/conexion.php";
         </div>
 
         <div id="contenido">
-            <h1>la pizza con piña no es pizza</h1>
+            <h2>Modificar carta de pizzas</h2>
             <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" anctype="multipart/form-data">
                 <p>Código: <input type="text" name="codigo"></p>
                 <p>Descripción: <input type="text" name="descripcion"></p>

@@ -1,6 +1,8 @@
 <?php
 include "./clases/conexion.php";
-
+include "./clases/pizza.php";
+// no me funcioan el include DB y no entiendo pq
+// include "./clases/DB.php.php";
 
 ?>
 
@@ -28,12 +30,9 @@ include "./clases/conexion.php";
     <div id="contenido">
       <h2>Carta de pizzas</h2>
 
-      <h1>NO SE NI RECORRER EL ARRAY PARA MOSTRAR FOTOS</h1>
-      <H1>DESESPERACIÓN</H1>
-
       <div class="pizzas-list" action="" method="post">
         <?php
-        foreach ($pizzas as $pizza) {
+        foreach ($pizza as $pizzas) {
           ?>
           <div class="pizza-item">xºº
             <img src="./img/<?php echo $pizza->getFoto(); ?>.png" alt="<?php echo $pizza->getDescripcion(); ?>">
@@ -49,13 +48,15 @@ include "./clases/conexion.php";
         }
         ?>
 
-
+        <br>
         <form action="" method="post">
           <input type="submit" name="modificarCarta" value="Modificar Carta">
         </form>
-        <?php if (isset($_POST['modificarCarta'])) {
+        <?php
+        if (isset($_POST['modificarCarta'])) {
           header("Location: pizzas.php");
-        } ?>
+        }
+        ?>
 
       </div>
 
