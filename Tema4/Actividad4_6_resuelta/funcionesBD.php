@@ -87,7 +87,7 @@
         unset($pdo);
 
         return $codigo;
-    }
+    }W"
 
     function borrarInsertarJugador($codigoJugadorBorrar, $nombre, $procedencia, $altura, $peso, $posicion, $equipo)
     {
