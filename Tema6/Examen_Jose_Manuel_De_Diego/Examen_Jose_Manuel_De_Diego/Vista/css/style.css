@@ -1,0 +1,65 @@
+body {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+header {
+    margin-top: 30px;
+}
+
+header img {
+    float: right;
+}
+
+.submenu {
+    position: relative;
+}
+
+table td{
+    padding: 15px;
+}
+
+.eliminarCarrito {
+    border-radius: 100%;
+    background-color: red;
+    color: white;
+}
+
+#carrito {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+#fotoCarro {
+    width: 30%;
+}
+h3 {
+    float: left;
+}
+
+.submenu #carrito{
+    display: none;
+}
+.submenu:hover #carrito{
+    display: block;
+    position: absolute;
+    right:0;
+    margin-top: 30px;
+    border-radius: 5%;
+    top:100%;
+    z-index: 1;
+    background-color: rgb(219, 219, 219);
+    padding: 20px;
+    min-height: 400px;
+    min-width: 300px;
+}
+
+ul {
+    list-style: none;
+}
