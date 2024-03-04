@@ -72,6 +72,7 @@ if (isset($_POST["mostrar"])) {
 <body>
     <h1>Ejercicio pizzas</h1>
     <h3>Modificar carta de pizzas</h3>
+    <!-- MUY IMPORTANTE poner el enctype="multipart/form-data" para que admita las fotos -->
     <form action="" method="post" enctype="multipart/form-data">
         <label for="codigo">Codigo</label>
         <input type="text" name="codigo" maxlength="5">
